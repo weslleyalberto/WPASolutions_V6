@@ -4,7 +4,422 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<section id="hero" class="d-flex align-items-center">
+
+    <div class="container-fluid" data-aos="fade-up">
+        <div class="row justify-content-center">
+
+            <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                @{
+                    string bomdia = "Bom dia.";
+                    string boatarde = "Boa tarde.";
+                    string boanoite = "Boa noite.";
+                    string wpa = "WPA";
+                    string solutions = "Solutions";
+                    string bemvindo = "Bem vindo à ";
+                    int hora = DateTime.Now.Hour;
+                    if (hora >= 6 && hora < 12)
+                    {
+                        <h1 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"><span > @bomdia @bemvindo</span>  @wpa<span> @solutions</span></h1>
+                    }
+                    else if (hora >= 12 && hora < 18)
+                    {
+                        <h1 id="titulo-page"><span> @boatarde @bemvindo </span>  @wpa<span> @solutions</span></h1>
+                    }
+                    else if (hora >= 18 && hora <= 23)
+                    {
+                        <h1 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:40px;"><span >@boanoite  @bemvindo</span>  @wpa <span>@solutions</span></h1>
+                    }
+                    else
+                    {
+                        <h1><span> @bomdia @bemvindo</span>  @wpa<span> @solutions</span></h1>
+                    }
+
+                }
+
+                @section scripts{
+                    <script>
+                        function typeWrite(elemento) {
+                            const textArray = elemento.innerHTML.split('');
+                            elemento.innerHTML = ' ';
+                            textArray.forEach(function (letra, i) {
+                                setTimeout(function () {
+                                    elemento.innerHTML += letra;
+                                }, 65 * i)
+                            });
+                        }
+                        const titulo = document.querySelector('.titulo-principal');
+                        typeWrite(titulo);
+                    </script>
+                }
+                <h2 class="titulo-principal">Site Institucional, E-Commerce , Apps para Android e IOS, Designer Gráfico , Comunicação Visual, Flayer Média e Marketing Digital</h2>
+                <div><a href="#services" class="btn-get-started scrollto">Conheça Nossos Serviços</a></div>
+            </div>
+            <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
+                <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+            </div>
+        </div>
+    </div>
+
+
+</section><!-- End Hero -->
+
+<main id="main">
+
+    <section id="features" class="features">
+        <div class="container" data-aos="fade-up">
+
+
+
+            <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column align-items-lg-center">
+                    <div class="icon-box mt-5 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+                        <i class="bx bx-receipt"></i>
+                        <h4>É Preciso entender</h4>
+                        <p>Com foco em criativo, temos os melhores processos para impulsionar seu negócio</p>
+                    </div>
+                    <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="200">
+                        <i class="bx bx-cube-alt"></i>
+                        <h4>Todas as possibilidades</h4>
+                        <p>Sempre próximos dos clientes, explorando às demandas mercadológicas</p>
+                    </div>
+                    <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="300">
+                        <i class="bx bx-images"></i>
+                        <h4>Desempenho e entrega</h4>
+                        <p>Com uma equipe trabalhando em diversas áreas, entregamos sua demanda com menor tempo</p>
+                    </div>
+                    <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="400">
+                        <i class="bx bx-shield"></i>
+                        <h4>O presente e o futuro</h4>
+                        <p>Nossa filosofia é acompanhar todas as novidades de um mundo que esta cada dia mais digital</p>
+                    </div>
+                </div>
+                <div class="image col-lg-6 order-1 order-lg-2 " data-aos="zoom-in" data-aos-delay="100">
+                    <img src="assets/img/features.svg" alt="" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Features Section -->
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+        <div class="container">
+
+            <div class="row counters">
+
+                <div class="col-lg-4 col-6 text-center">
+                    <span data-toggle="counter-up">27</span>
+                    <p>Clientes</p>
+                </div>
+
+                <div class="col-lg-4 col-6 text-center">
+                    <span data-toggle="counter-up">53</span>
+                    <p>Projetos</p>
+                </div>
+
+              
+
+                <div class="col-lg-4 col-6 text-center">
+                    <span data-toggle="counter-up">2</span>
+                    <p>Equipe </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Counts Section -->
+
+    @await Html.PartialAsync("/Pages/Shared/ServicosPartial.cshtml");
+
+
+
+    <!-- ======= Features Section ======= -->
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2 style="color:#4a28ea;">Portfólio</h2>
+
+                <p style="font-weight:bold;">Algumas de nossas criações</p>
+                <p style="font-weight:bold;">Visite nosso repositório de código</p>
+                <a href="https://github.com/weslleyalberto" target="_blank"><img src="~/assets/img/github.png" width="150" /></a>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <ul id="portfolio-flters">
+                        <li data-filter="*" class="filter-active">Todos</li>
+                        <li data-filter=".filter-app">Aplicativos</li>
+                        <li data-filter=".filter-card">Arte Gráfica</li>
+                        <li data-filter=".filter-web">Web</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row portfolio-container">
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/site2.jpg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Webl</h4>
+                            <p>Modelo de Loja Virtual</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/portfolio/site2.jpg" data-gall="portfolioGallery" class="venobox" title="Modelo loja virtual"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/site-remo.jpg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Web</h4>
+                            <p>Modelo loja virtual</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/portfolio/site-remo.jpg" data-gall="portfolioGallery" class="venobox" title="Web"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/clube fm - top.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Web</h4>
+                            <p>Rádio Clube FM - Paraíso/Palmas</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/portfolio/clube fm - top.png" data-gall="portfolioGallery" class="venobox" title="Web"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/img/portfolio//clube_fm_night.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Web</h4>
+                            <p>Rádio Clube FM - Paraíso/Palmas</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/img/portfolio//clube_fm_night.png" data-gall="portfolioGallery" class="venobox" title="Web"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/img/portfolio/clubefmtop5.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Web</h4>
+                            <p>Rádio Clube FM - Paraíso/Palmas</p> <!--Aqui***-->
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/img/portfolio/clubefmtop5.png" data-gall="portfolioGallery" class="venobox" title="Web"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/clube fm - top2.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Web</h4>
+                            <p>Rádio Clube FM - Paraíso/Palmas</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/portfolio/clube fm - top2.png" data-gall="portfolioGallery" class="venobox" title="Web"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/clube fm - top3.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Web</h4>
+                            <p>Rádio Clube FM - Paraíso/Palmas</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/portfolio/clube fm - top3.png" data-gall="portfolioGallery" class="venobox" title="Web"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/site3.jpg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Web</h4>
+                            <p>Modelo loja virtual</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/portfolio/site3.jpg" data-gall="portfolioGallery" class="venobox" title="Web"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/Screenshot_20210116-190318_Emprio Brasil Delivery.jpg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Apps</h4>
+                            <p>Aplicativo para delivery</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/img/portfolio/Screenshot_20210116-190318_Emprio Brasil Delivery.jpg" data-gall="portfolioGallery" class="venobox" title="Delivery App"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/Screenshot_20210126-231401_Emprio Brasil Delivery.jpg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>App</h4>
+                            <p>Aplicativo Delivery Empório Brasil</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/portfolio/Screenshot_20210126-231401_Emprio Brasil Delivery.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/Screenshot_20210126-231401_Emprio Brasil Delivery.jpg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>App</h4>
+                            <p>Aplicativo Delivery Empório Brasil</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/portfolio/Screenshot_20210126-231401_Emprio Brasil Delivery.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/img/Simulator Screen Shot - iPhone 12 Pro Max - 2021-04-25 at 00.31.59.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>App</h4>
+                            <p>Aplicativo Delivery Empório Brasil IOS(IPHONE)</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/img/Simulator Screen Shot - iPhone 12 Pro Max - 2021-04-25 at 00.31.59.png" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/img/splashScreem.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>App</h4>
+                            <p>Tela do APP Consulta Endereço através do CEP</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/img/splashScreem.png" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/img/consultaCEPIOS.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>App</h4>
+                            <p>Tela do APP Consulta Endereço através do CEP Versão IOS(IPHONE)</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/img/consultaCEPIOS.png" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/img/appConsultacep.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>App</h4>
+                            <p>Home do App Consulta Endereço por CEP</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/img/appConsultacep.png" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/Screenshot_20210116-190130.jpg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>App</h4>
+                            <p>Monitor Delivery</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/portfolio/Screenshot_20210116-190130.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/WhatsApp Image 2021-01-21 at 12.58.23.jpeg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Arte Gráfica</h4>
+                            <p>Card</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/portfolio/WhatsApp Image 2021-01-21 at 12.58.23.jpeg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/WhatsApp Image 2021-01-21 at 12.58.236.jpeg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Arte Gráfica</h4>
+                            <p>Card</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/portfolio/WhatsApp Image 2021-01-21 at 12.58.236.jpeg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="portfolio-wrap">
+                        <img src="~/assets/portfolio/WhatsApp Image 2021-01-21 at 12.58.24.jpeg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>Arte Gráfica</h4>
+                            <p>Card</p>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="~/assets/portfolio/WhatsApp Image 2021-01-21 at 12.58.24.jpeg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Portfolio Section -->
+    @await Html.PartialAsync("/Pages/Shared/TeamPartial.cshtml");
+    @await Html.PartialAsync("/Pages/Shared/ContatoPartial.cshtml");
+</main><!-- End #main -->
