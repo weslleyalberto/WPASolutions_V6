@@ -10,8 +10,4 @@
     <Compile Remove="Pages\Shared\ServicosPartial.cshtml.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MailKit" Version="2.15.0" />
-  </ItemGroup>
-
 </Project>
